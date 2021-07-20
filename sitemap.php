@@ -112,6 +112,12 @@ $smManager = new SiteMapManager();
 				?>
 				<li><a href="checklists/index.php"><?php echo (isset($LANG['ALL_CHECKLISTS'])?$LANG['ALL_CHECKLISTS']:'All Public Checklists'); ?></a></li>
 			</ul>
+
+      <h2><?php echo (isset($LANG['DATASETS'])?$LANG['DATASETS']:'Datasets') ;?></h2>
+      <ul>
+      <li><a href="collections/datasets/publiclist.php">All Publicly Viewable Datasets</a></li>
+      </ul>
+
 			<div style="margin-top:10px;"><h2><?php echo $LANG['DYNAMIC'];?></h2></div>
 			<ul>
 				<li>
@@ -269,6 +275,11 @@ $smManager = new SiteMapManager();
 						}
 						?>
 					</ul>
+
+          <h3><?php echo (isset($LANG['DATASETS'])?$LANG['DATASETS']:'Datasets') ;?></h3>
+          <ul>
+            <li><a href="collections/datasets/index.php">Dataset Management Page</a> - datasets you are authorized to edit</li>
+          </ul>
 
 					<h3><?php echo $LANG['TAXONPROF'];?></h3>
 					<?php

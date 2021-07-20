@@ -58,7 +58,8 @@ if($isEditor){
 	}
 	if($isEditor == 1){
 		if($action == 'Save Edits'){
-			if($datasetManager->editDataset($_POST['datasetid'],$_POST['name'],$_POST['notes'])){
+      $isPublic = (isset($_POST['ispublic'])&&is_numeric($_POST['ispublic'])?1:0);
+			if($datasetManager->editDataset($_POST['datasetid'],$_POST['name'],$_POST['notes'],$_POST['description'],$isPublic)){
 				$mdArr = $datasetManager->getDatasetMetadata($datasetId);
 				$statusStr = 'Success! Dataset edits saved. ';
 			}
@@ -128,6 +129,19 @@ if($isEditor){
 		<script type="text/javascript" src="../../js/jquery.js"></script>
 		<script type="text/javascript" src="../../js/jquery-ui.js"></script>
 		<script type="text/javascript" src="../../js/symb/shared.js"></script>
+    <script type="text/javascript" src="../../js/tinymce/tinymce.min.js"></script>
+    <script>
+     // Adds WYSIWYG editor to description field
+      tinymce.init({
+        selector: '#description',
+        plugins: 'link lists image',
+        menubar: '',
+        toolbar: [
+          'undo redo | bold italic underline | link | alignleft aligncenter alignright | formatselect | bullist numlist | indent outdent | blockquote | image',
+        ],
+        branding: false
+      });
+    </script>
 		<script type="text/javascript">
 			var isDownloadAction = false;
 			$(document).ready(function() {
@@ -378,15 +392,25 @@ if($isEditor){
 						?>
 						<div id="admintab">
 							<fieldset style="padding:15px;margin:15px;">
-								<legend><b>Editor</b></legend>
+								<legend><p><b>Editor</b></p></legend>
 								<form name="editform" action="datasetmanager.php" method="post" onsubmit="return validateEditForm(this)">
 									<div>
-										<b>Name</b><br />
-										<input name="name" type="text" value="<?php echo $mdArr['name']; ?>" style="width:400px" />
+										<p><b>Name</p>
+										<input name="name" type="text" value="<?php echo $mdArr['name']; ?>" style="width:70%" />
+									</div>
+                  <div>
+                  <p>
+                  <input type="checkbox" name="ispublic" id="ispublic" value="1" <?php echo ($mdArr['ispublic']?'CHECKED':''); ?> />
+                  <b>Publicly Visible</b>
+                  </p>
+                  </div>
+                  <div>
+										<p><b>Notes (Internal usage, not displayed publicly)</b></p>
+										<input name="notes" type="text" value="<?php echo $mdArr['notes']; ?>" style="width:70%" />
 									</div>
 									<div>
-										<b>Notes</b><br />
-										<input name="notes" type="text" value="<?php echo $mdArr['notes']; ?>" style="width:90%" />
+										<p><b>Description</p>
+                    <textarea name="description" id="description" cols="100" rows="10" width="70%"><?php echo $mdArr['description']; ?></textarea>
 									</div>
 									<div style="margin:15px;">
 										<input name="tabindex" type="hidden" value="1" />
@@ -449,7 +473,7 @@ if($isEditor){
 							</div>
 							<div style="margin:15px;">
 								<fieldset>
-									<legend><b>Add User</b></legend>
+									<legend><p><b>Add User</b></legend>
 									<form name="addform" action="datasetmanager.php" method="post" onsubmit="return validateUserAddForm(this)">
 										<div title="Type login or last name and then select from list">
 											Login/Last Name:

@@ -14,7 +14,7 @@ $datasetManager = new OccurrenceDataset();
 
 $statusStr = '';
 if($action == 'createNewDataset'){
-	if(!$datasetManager->createDataset($_POST['name'],$_POST['notes'],$SYMB_UID)){
+	if(!$datasetManager->createDataset($_POST['name'],$_POST['notes'],$_POST['description'],$_POST['ispublic'],$SYMB_UID)){
 		$statusStr = implode(',',$datasetManager->getErrorArr());
 	}
 }
@@ -44,6 +44,19 @@ elseif($action == 'addAllToDataset'){
 		<script type="text/javascript" src="../../js/jquery.js"></script>
 		<script type="text/javascript" src="../../js/jquery-ui.js"></script>
 		<script type="text/javascript" src="../../js/symb/shared.js"></script>
+    <script type="text/javascript" src="../../js/tinymce/tinymce.min.js"></script>
+    <script>
+     // Adds WYSIWYG editor to description field
+      tinymce.init({
+        selector: '#description',
+        plugins: 'link lists image',
+        menubar: '',
+        toolbar: [
+          'undo redo | bold italic underline | link | alignleft aligncenter alignright | formatselect | bullist numlist | indent outdent | blockquote | image',
+        ],
+        branding: false
+      });
+    </script>
 		<script type="text/javascript">
 			function validateAddForm(f){
 				if(f.adduser.value == ""){
@@ -114,13 +127,23 @@ elseif($action == 'addAllToDataset'){
 				<legend><b>Create New Dataset</b></legend>
 				<form name="adminform" action="index.php" method="post" onsubmit="return validateEditForm(this)">
 					<div>
-						<b>Name</b><br />
-						<input name="name" type="text" style="width:250px" />
+						<p><b>Name</b></p>
+						<input name="name" type="text" style="width:90%" />
 					</div>
+          <div>
+            <p>
+              <input type="checkbox" name="ispublic" id="ispublic" value="1" />
+            <b>Publicly Visible</b>
+            </p>
+          </div>          
 					<div>
-						<b>Notes</b><br />
+						<p><b>Notes (Internal usage, not displayed publicly)</b></p>
 						<input name="notes" type="text" style="width:90%;" />
 					</div>
+          <div>
+            <p><b>Description (Displayed publicly)</p>
+            <textarea name="description" id="description" cols="100" rows="10" width="90%"></textarea>
+          </div>
 					<div style="margin:15px">
 						<button name="submitaction" type="submit" value="createNewDataset">Create New Dataset</button>
 					</div>

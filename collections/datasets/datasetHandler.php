@@ -17,7 +17,7 @@ if($SYMB_UID){
 		$datasetManager = new OccurrenceDataset();
 		if($datasetID == '--newDataset'){
 			$name = 'newDataset ('.date('Y-m-d H:i:s').')';
-			$datasetManager->createDataset($name,'',$SYMB_UID);
+			$datasetManager->createDataset($name,'','','',$SYMB_UID);
 			$datasetID = $datasetManager->getDatasetId();
 		}
 		$targetLink = 'datasetmanager.php?datasetid='.$datasetID;

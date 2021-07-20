@@ -61,7 +61,7 @@ subir con el enlace abajo. Por favor toma en cuenta que usted necesite los derec
 funcionalidad. ';
 $LANG['BASICFIELD'] = 'Procedimiento b&aacute;sico para subir im&aacute;genes del campo';
 $LANG['IMGOBSER'] = 'Modulo para subir Im&aacute;genes de Observaci&oacute;n';
-$LANG['ADDNEWPROJ'] = 'Añadir nuevo proyecto';
+$LANG['ADDNEWPROJ'] = 'Aï¿½adir nuevo proyecto';
 $LANG['LISTOFCURR'] = 'Listado de proyectos actuales';
 $LANG['CLICKEDIT'] = '(hace clic aqu&iacute; para editar)';
 $LANG['NOPROJ'] = 'No hay proyectos en el sistema';
@@ -75,7 +75,7 @@ $LANG['TAXTREE'] = 'Visualizador del &aacute;rbol taxon&oacute;mico';
 $LANG['DYNTAXTREE'] = 'Navegador de Taxonom&iacute;a';
 $LANG['EDITTAXPL'] = 'Editar ubicaci&oacute;n taxon&oacute;mica (hay que usar';
 $LANG['TAXTREEVIEW'] = 'visualizador del &aacute;rbol taxon&oacute;mico)';
-$LANG['ADDTAXANAME'] = 'Añadir nuevo nombre de un taxon';
+$LANG['ADDTAXANAME'] = 'Aï¿½adir nuevo nombre de un taxon';
 $LANG['BATCHTAXA'] = 'Subir masivo de un archivo taxon&oacute;mico';
 $LANG['EOLLINK'] = 'Gesti&oacute;n de enlaces al Encyclopedia of Life';
 $LANG['NOTEDITTAXA'] = 'Usted no esta autorizado/a de editar la taxonom&iacute;a';
@@ -87,7 +87,7 @@ A bajo hay un listado con todos sus derechos individuales de las listas de espec
 $LANG['EXSICCATII'] = 'Exsiccati';
 $LANG['ESCMOD'] = 'El modulo de Exsiccati es activado para este portal.
 Cualquier usuario puede ver o navegar el &iacute;ndice de exsiccati (listado abajo) The exsiccati index (listed below).
-No es posible aunque añadir o modificar el titulo del exsiccati o de la serie,
+No es posible aunque aï¿½adir o modificar el titulo del exsiccati o de la serie,
 por lo menos el usuario tiene que ser administrador para una colecci&oacute;n especifica para tener estos derechos';
 $LANG['NOTEDITCHECK'] = 'Usted no esta autorizado/a para editar ninguna de las listas de especies.';
 $LANG['PARA1'] = 'Herramientas para manejar datos espec&iacute;ficos para una colecci&oacute;n particular est&aacute;n disponibles por la pagina del perfil de esta colecci&oacute;n.
@@ -121,5 +121,6 @@ $LANG['TEXTDESC'] = 'Descripciones textuales';
 $LANG['PERSONAL'] = 'Gesti&oacute;n del manejo personal de especimenes y imprimir etiquetas';
 $LANG['EDITIMG'] = 'Modificar Im&aacute;genes';
 $LANG['IMGSORTORD'] = 'Modificar la secuencia de im&aacute;genes';
-$LANG['ADDNEWIMG'] = 'Añadir nuevo imagen';
+$LANG['ADDNEWIMG'] = 'Aï¿½adir nuevo imagen';
+$LANG['DATASETS'] = 'Conjuntos de dados';
 ?>

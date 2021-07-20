@@ -122,4 +122,5 @@ $LANG['PERSONAL'] = 'Personal Specimen Management and Label Printing Features';
 $LANG['EDITIMG'] = 'Edit Images';
 $LANG['IMGSORTORD'] = 'Edit Image Sorting Order';
 $LANG['ADDNEWIMG'] = 'Add a new image';
+$LANG['DATASETS'] = 'Datasets';
 ?>
